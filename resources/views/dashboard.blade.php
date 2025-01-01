@@ -21,10 +21,21 @@
             <td>{{$product->desc}}</td>
             <td>{{$product->price}}</td>
             <td>{{$product->quantity}}</td>
-            <td>
+            <td class="d-flex">
+               <button class="border-0 bg-transparent">
                 <a href="{{route('product.show', $product->id)}}"><i class="fa-solid fa-eye"></i></a>
+               </button>
+               <button class="border-0 bg-transparent">
                 <a href="{{route('product.edit', $product->id)}}"><i class="fa-solid fa-pen-to-square"></i></a>
-                <a href=""><i class="fa-solid fa-trash"></i></a>
+               </button>
+                
+                <form action="{{route('product.destroy', $product->id)}}" method="POST">
+                  @csrf 
+                  @method('DELETE')
+                  <button type="submit" class="border-0 bg-transparent">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
             </td>
           </tr>
 
