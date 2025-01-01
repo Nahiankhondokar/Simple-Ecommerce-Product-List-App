@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::query()->orderByDesc('id')->get();
         return view('dashboard', compact('products'));
     }
 
@@ -47,6 +47,10 @@ class ProductController extends Controller
     public function show(string $id)
     {
         $product = Product::find($id);
+        if(!$product){
+            return redirect()->route('product.index')->with('error', 'Product not found');
+        }
+
         return view('product.view', ['product'=>$product]);
     }
 
@@ -55,7 +59,12 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $product = Product::find($id);
+        if(!$product){
+            return redirect()->route('product.index')->with('error', 'Product not found');
+        }
+
+        return view('product.edit', ['product'=>$product]);
     }
 
     /**
@@ -63,7 +72,17 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $product = Product::find($id);
+        if(!$product){
+            return redirect()->route('product.index')->with('error', 'Product not found');
+        }
+        $product->name      = $request->name;
+        $product->price     = $request->price;
+        $product->quantity  = $request->quantity;
+        $product->desc      = $request->desc;
+        $product->save();
+
+       return redirect()->route('product.index')->with('success', 'Product updated successfully');
     }
 
     /**

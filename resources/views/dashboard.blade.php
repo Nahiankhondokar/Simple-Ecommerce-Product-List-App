@@ -23,7 +23,7 @@
             <td>{{$product->quantity}}</td>
             <td>
                 <a href="{{route('product.show', $product->id)}}"><i class="fa-solid fa-eye"></i></a>
-                <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
+                <a href="{{route('product.edit', $product->id)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                 <a href=""><i class="fa-solid fa-trash"></i></a>
             </td>
           </tr>
