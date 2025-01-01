@@ -22,7 +22,7 @@
             <td>{{$product->price}}</td>
             <td>{{$product->quantity}}</td>
             <td>
-                <a href=""><i class="fa-solid fa-eye"></i></a>
+                <a href="{{route('product.show', $product->id)}}"><i class="fa-solid fa-eye"></i></a>
                 <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
                 <a href=""><i class="fa-solid fa-trash"></i></a>
             </td>

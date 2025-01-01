@@ -3,7 +3,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav m-auto">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Product</a>
+                <a class="nav-link active" aria-current="page" href="{{route('product.index')}}">Product</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{route('product.create')}}">Add Product</a>
