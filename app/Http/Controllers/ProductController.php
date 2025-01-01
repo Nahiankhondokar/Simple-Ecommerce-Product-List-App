@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\productCreateRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -22,15 +23,15 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('product.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(productCreateRequest $request)
     {
-        //
+        
     }
 
     /**

@@ -6,7 +6,7 @@
                 <a class="nav-link active" aria-current="page" href="#">Product</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Add Product</a>
+                <a class="nav-link" href="{{route('product.create')}}">Add Product</a>
               </li>
             </ul>
           </div>
