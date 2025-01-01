@@ -14,6 +14,14 @@
 <body>
    @include('layouts.header')
 
+    <div class="error-messgae-show w-25 m-auto">
+        @if(session()->has('success'))
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div>
+        @endif
+    </div>
+
    @yield('content')
 </body>
 </html>

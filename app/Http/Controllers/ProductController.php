@@ -15,7 +15,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('welcome', compact('products'));
+        return view('dashboard', compact('products'));
     }
 
     /**
@@ -31,7 +31,14 @@ class ProductController extends Controller
      */
     public function store(productCreateRequest $request)
     {
-        
+        Product::query()->create([
+            'name'          => $request->name,
+            'desc'          => $request->desc,
+            'price'         => $request->price,
+            'quantity'      => $request->quantity,
+        ]);
+
+        return redirect()->route('product.index')->with('success', 'Product created successfully');
     }
 
     /**
