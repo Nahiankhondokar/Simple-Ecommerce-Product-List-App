@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+<h2 class="text-center">Ecommerce Product CRUD</h2>
 <section class="container my-5">
     <table class="table table-striped">
         <thead>
